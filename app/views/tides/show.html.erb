@@ -1,0 +1,11 @@
+<h1>Marées à <%= @port.name.capitalize %></h1>
+
+<p>Départ au plus tard : <%= @latest_departure.strftime("%Hh%M") %></p>
+
+<% @tides.each do |tide| %>
+  <h3><%= tide.tide %></h3>
+  <p><strong>Coeff : </strong> <%= tide.tide %></p>
+  <p><strong>Heure : </strong> <%= tide.hour %></p>
+  <p><strong>Hauteur : </strong> <%= tide.height %>m</p>
+  <br>
+<% end %>

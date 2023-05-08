@@ -1,0 +1,7 @@
+<h1>Pages#home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<ul>
+  <li><%= link_to "Landrellec", tide_path(Port.find_by(name: "Pleumeur-Bodou")) %></li>
+  <li><%= link_to "Saint-Malo", tide_path(Port.find_by(name: "SAINT-MALO")) %></li>
+</ul>
