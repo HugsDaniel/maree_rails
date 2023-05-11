@@ -30,7 +30,7 @@ class TideScraperService
       extract(slice)
     end
 
-    return @data
+    return @data.each_with_index { |tide, index| tide.hour = tide.hour + 1.day if index > 3 }
   end
 
   private
@@ -39,7 +39,7 @@ class TideScraperService
     period.first.each_with_index do |element, index|
       if period.last[index].match?(@regex)
         match_data = period.last[index].match(@regex)
-        @data << Tide.new(coef: period.last[0].to_i, tide: element, hour: match_data[:hour], height: match_data[:height].gsub(",", ".").to_f)
+        @data << Tide.new(coef: period.last[0].to_i, tide: element, hour: Time.parse(match_data[:hour]), height: match_data[:height].gsub(",", ".").to_f)
       end
     end
   end

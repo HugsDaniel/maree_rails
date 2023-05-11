@@ -1,7 +1,12 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+<%= form_with url: root_path, method: :get do |f| %>
+  <%= f.text_field :query, placeholder: "Rechercher...", value: params[:query] %>
+<% end %>
+
 <ul>
-  <li><%= link_to "Landrellec", tide_path(Port.find_by(name: "Pleumeur-Bodou")) %></li>
-  <li><%= link_to "Saint-Malo", tide_path(Port.find_by(name: "SAINT-MALO")) %></li>
+  <% @ports.each do |port| %>
+    <li><%= link_to port.name, tide_path(port) %></li>
+  <% end %>
 </ul>
