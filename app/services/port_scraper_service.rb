@@ -3,16 +3,17 @@ require "open-uri"
 
 class PortScraperService
   def initialize
-    @url = "http://www.horaire-maree.fr"
+    # @url = "http://www.horaire-maree.fr"
+    @url = "https://maree.info/"
   end
 
   def call
     doc = Nokogiri::HTML.parse(URI.open(@url).read)
 
-    doc.search(".select_port option").each do |option|
+    doc.search("a.Port").each do |link|
       port = Port.find_or_initialize_by(
-        name: option.text.strip,
-        slug: option.attribute("value").value
+        name: link.text.strip,
+        slug: link.attribute("href").value.gsub("/", "")
       )
       port.save!
     end

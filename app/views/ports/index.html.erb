@@ -1,24 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<%= form_with url: root_path, method: :get do |f| %>
-  <%= f.text_field :query, placeholder: "Rechercher...", value: params[:query] %>
-<% end %>
-
-<% if user_signed_in? %>
-  <% @favorites.each do |port| %>
-    <li><%= link_to port.name, tide_path(port) %></li>
-  <% end %>
-<% end %>
-
-<ul>
-  <% @ports.each do |port| %>
-    <li><%= link_to port.name, tide_path(port) %></li>
-  <% end %>
-</ul>
-
 
 <main class="container">
+  <% if user_signed_in? %>
+    <div class="header">
+      <h1>Favoris</h1>
+    </div>
+    <% @favorites.each_slice(2) do |slice| %>
+      <div class="wrap">
+        <% slice.each do |favorite| %>
+          <%= render "port", port: favorite.port %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="header">
     <h1>Ports</h1>
   </div>

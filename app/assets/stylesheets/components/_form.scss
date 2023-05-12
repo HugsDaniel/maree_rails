@@ -1,0 +1,71 @@
+.form {
+  &__input {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: box-shadow 250ms;
+
+    &--invalid {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__checkbox-label &__input {
+    width: auto;
+  }
+
+  &__input-devise {
+    padding: var(--space-xxs) var(--space-xs);
+    margin: var(--space-xs) 0;
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--color-glint);
+    }
+  }
+
+  &__input-search {
+    padding: var(--space-xxs) var(--space-xs);
+    margin: var(--space-m) 0;
+  }
+
+  &__input-tiptap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: var(--font-size-xxxl);
+    &--invalid {
+      border-color: var(--color-primary);
+    }
+  }
+
+  &__input-small {
+    font-size: var(--font-size-m);
+  }
+
+  display: flex;
+  flex-direction: column;
+
+  &__group {
+    gap: var(--space-l);
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-l);
+    margin-bottom: var(--space-xs);
+
+    @include media(tabletAndUp) {
+      // margin-bottom: var(--space-xl);
+    }
+  }
+}

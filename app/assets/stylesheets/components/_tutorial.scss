@@ -1,0 +1,40 @@
+.tutorial {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-small);
+  margin-bottom: var(--space-m);
+  padding: var(--space-xs);
+
+  @include media(tabletAndUp) {
+    padding: var(--space-xs) var(--space-m);
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    img { margin-right: var(--space-s)}
+    small { color: var(--color-text-muted) }
+  }
+
+  &__actions {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: var(--space-m);
+    min-height: 40px;
+
+    a {
+      transition: .4s;
+      opacity: 0.5;
+    }
+    a:hover {
+      opacity: 1;
+    }
+  }
+}

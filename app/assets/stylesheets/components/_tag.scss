@@ -1,0 +1,19 @@
+.tags__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  border-radius: var(--border-radius) !important;
+  font-size: var(--font-size-xs) !important;
+  color: white !important;
+  font-weight: bold !important;
+  padding: var(--space-xxxs) var(--space-xs) !important;
+  margin: 0 !important;
+  margin-right: var(--space-xxs) !important;
+
+  &:hover {
+    color: white !important;
+  }
+  // text-shadow: -1px -1px 0 var(--color-text-muted), 1px -1px 0 var(--color-text-muted), -1px 1px 0 var(--color-text-muted), 1px 1px 0 var(--color-text-muted);
+}

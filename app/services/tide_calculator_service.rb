@@ -22,7 +22,6 @@ class TideCalculatorService
       diff = next_tide.hour - closer_tide.hour
 
       heure_maree_sec     = Time.at(diff.fdiv(6)).utc.to_i
-      p heure_maree_sec
       hauteurs            = [Tide.new(height: hauteur_mh, degree: 1, hour: closer_tide.hour)]
 
       [1, 2, 3, 3, 2, 1].each_with_index do |n, index|
@@ -32,11 +31,19 @@ class TideCalculatorService
 
       if closer_tide_is_high
         closer = hauteurs.find { |tide| tide.height < @min_eau }
+        next unless closer
+
         degree = closer.degree
       else
-        closer = hauteurs.find { |tide| tide.height > @min_eau }
+        closer = hauteurs.reverse.find { |tide| tide.height < @min_eau }
+
+        next unless closer
+        next if closer.height > @min_eau
+
         degree = closer.degree - 1
       end
+
+      degree = 1 if degree.zero?
 
       @tides << Tide.new(tide: "Départ / Arrivée", height: @min_eau.round(2), hour: (closer.hour - ((heure_maree_sec / 60) * (@min_eau - closer.height) / ((degree) * marnage_douzieme)) * 60))
     end

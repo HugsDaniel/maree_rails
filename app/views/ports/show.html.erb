@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <h1 class="centered">Marées à <%= @port.name.capitalize %></h1>
+    <% if @favorite %>
+      <p class="centered">Dans les favoris</p>
+    <% else %>
+      <%= simple_form_for [@port, Favorite.new], html: { class: "flex flex-column gap-0-5 align-center"} do |f| %>
+        <%= f.label :height, "Entrer la hauteur de votre mouillage dans ce port" %>
+        <%= f.input :height, label: false %>
+        <%= f.submit "Ajouter aux favoris" %>
+      <% end %>
+    <% end %>
+
+    <%= form_with url: port_path(@port), method: :get do |f| %>
+      <%= f.label :height, "Calculer pour une autre hauteur de mouillage" %>
+      <%= f.text_field :height, value: params[:height] %>
+      <%= f.submit "Calculer" %>
+    <% end %>
+    <% if params[:height].present? %>
+      <%= button_to "X", port_path(@port), method: :get %>
+    <% end %>
+  </div>
+
+  <div class="flex">
+    <% @tides.group_by {|t| t.hour.strftime("%a %d/%m") }.each do |group| %>
+      <table>
+        <tbody>
+          <tr>
+            <th colspan="4"><%= group.first %></th>
+          </tr>
+          <tr>
+            <th>Heure</th>
+            <th>Coeff</th>
+            <th>Hauteur</th>
+            <th>Infos</th>
+          </tr>
+          <% group.last.each do |tide| %>
+            <tr class="<%= 'red' if tide.tide == "Départ / Arrivée" %> <%= 'bold' if tide.tide == "Pleine mer" %>">
+              <td><%= tide.hour.strftime("%Hh%M") %></td>
+              <td><%= tide.coef %></td>
+              <td><%= tide.height %>m</td>
+              <td><%= info_for(tide.tide) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    <%= line_chart @tides.map { |tide| [tide.hour, tide.height]},
+      suffix: " m"
+    %>
+  </div>
+</div>
+
+<!--
+
+
+
+-->

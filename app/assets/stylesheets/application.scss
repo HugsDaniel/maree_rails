@@ -1,39 +1,35 @@
-.container {
-  padding-right: 100px;
-  padding-left: 100px;
-  margin-right: auto;
-  margin-left: auto;
-}
+// Mixins
+@import "mixins/media";
 
-.flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 30px;
-}
+// Configuration
+@import "config/variables";
+@import "config/reset";
 
-.red {
-  color: red;
-}
+// Components
+@import "components/alert";
+@import "components/avatar";
+@import "components/badge";
+@import "components/btn";
+@import "components/error_message";
+@import "components/form";
+@import "components/navbar";
+@import "components/visually_hidden";
+@import "components/tip_tap";
+@import "components/table";
+@import "components/tag";
+@import "components/tutorial";
+@import "components/select";
 
-h1 {
-  text-align: center;
-}
+// Layouts
+@import "layouts/container";
+@import "layouts/header";
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 50%;
-  border: 1px solid #ddd;
+.CodeRay {
+  border: none !important;
+  border-radius: var(--border-radius);
+  padding: var(--space-m);
 
-  th, td {
-    text-align: left;
-    padding: 4px 16px;
-    border: 1px solid #ddd;
-  }
-
-  th {
-    background-color: #4CAF50;
-    color: white;
+  .string {
+    background-color: transparent !important;
   }
 }

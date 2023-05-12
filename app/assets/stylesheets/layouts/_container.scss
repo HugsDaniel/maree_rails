@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: 100%;
+  padding-right: var(--space-xs);
+  padding-left: var(--space-xs);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-xl);
+
+  @include media(tabletAndUp) {
+    padding-right: var(--space-m);
+    padding-left: var(--space-m);
+    max-width: 60rem;
+  }
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  .tutorial {
+    height: var(--space-xxxxl);
+    max-width: calc(50% - var(--space-xxs));
+    font-size: var(--font-size-l);
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+  }
+  // flex-wrap: wrap;
+}

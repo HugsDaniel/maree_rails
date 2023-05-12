@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+  text-align: center;
+}
+
+th {
+  padding: var(--space-xs);
+  font-weight: bold;
+  font-size: var(--font-size-m);
+  text-align: center;
+  background-color: var(--color-primary-rotate);
+  color: white;
+}
+
+.red {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}

@@ -1,0 +1,14 @@
+.ts-wrapper {
+  border: none;
+}
+
+.ts-control {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.ts-control input {
+  font-size: var(--font-size-s) !important;
+  color: var(--color-text-body) !important;
+}

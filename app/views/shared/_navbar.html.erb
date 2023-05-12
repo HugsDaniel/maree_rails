@@ -1,0 +1,11 @@
+<div class="navbar">
+  <div class="navbar__right">
+    <% if user_signed_in? %>
+      <%= link_to "Ports", root_path, class: "nav-link" %>
+      <p>|</p>
+      <%= link_to "Profil", "#", class: "nav-link" %>
+    <% else %>
+      <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.badge {
+  font-size: var(--font-size-s);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  padding: var(--space-xxs) var(--space-xs);
+  background-color: var(--color-light);
+  color: var(--color-text-muted);
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__insert {
+    font-weight: 400;
+  }
+
+  &--type {
+    margin-top: var(--space-xs);
+    border-radius: var(--border-radius);
+    padding: var(--space-xxs) var(--space-xs);
+    color: white;
+  }
+
+  &--tutorial {
+    background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-rotate));
+  }
+
+  &--troubleshooting {
+    background-image: linear-gradient(to right, var(--color-secondary), var(--color-secondary-rotate));
+  }
+}

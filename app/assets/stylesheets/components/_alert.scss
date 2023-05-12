@@ -1,0 +1,19 @@
+.alert {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: var(--space-l);
+  margin-right: var(--space-l);
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+
+  &__info {
+    background-color: var(--color-secondary-rotate);
+  }
+  &__warning {
+    background-color: var(--color-primary-rotate);
+  }
+}

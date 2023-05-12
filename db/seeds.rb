@@ -23,5 +23,5 @@ PortScraperService.new.call
 # landrellec = Port.create!(name: "Pleumeur-Bodou", height: 2.5)
 # saint_malo = Port.create!(name: "SAINT-MALO", height: 2.5)
 
-Favorite.create!(user: hugs, port: Port.find_by(slug: "Pleumeur-Bodou"))
-Favorite.create!(user: hugs, port: Port.find_by(slug: "SAINT-MALO"))
+# Favorite.create!(user: hugs, port: Port.find_by(slug: "Pleumeur-Bodou"))
+# Favorite.create!(user: hugs, port: Port.find_by(slug: "SAINT-MALO"))

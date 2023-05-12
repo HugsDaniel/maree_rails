@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-s) var(--space-m);
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-rotate));
+  // min-height: 60px;
+
+  &__logo {
+    width: 150px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__right a, &__right p {
+    margin-right: var(--space-m);
+    opacity: 0.8;
+    color: var(--color-white) !important;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-l) 0;
+}
