@@ -10,7 +10,7 @@ class TideScraperService
   end
 
   def call
-    doc = Nokogiri::HTML.parse(URI.open(@url, 'User-Agent' => 'ruby').read)
+    doc = Nokogiri::HTML.parse(HTTParty.get(@url))
 
     doc.search("tr.MJ").each do |tr|
 
