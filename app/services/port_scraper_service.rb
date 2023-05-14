@@ -8,7 +8,7 @@ class PortScraperService
   end
 
   def call
-    doc = Nokogiri::HTML.parse(URI.open(@url, 'User-Agent' => 'ruby')).read)
+    doc = Nokogiri::HTML.parse(URI.open(@url).read)
 
     doc.search("a.Port").each do |link|
       port = Port.find_or_initialize_by(
