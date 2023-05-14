@@ -4,7 +4,8 @@ require "open-uri"
 class TideScraperService
   def initialize(port_id)
     @port_id = port_id
-    @url = "https://maree.info/#{@port_id}"
+    @url = "https://www.google.com"
+    # @url = "https://maree.info/#{@port_id}"
     @regex = /(?<hour>\d{2}h\d{2})\s+(?<height>\d{1,2},\d{1,2})/
     @data = []
   end
